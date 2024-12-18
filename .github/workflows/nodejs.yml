@@ -22,14 +22,14 @@ jobs:
         os:
           - ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node }}
-        registry-url: 'https://registry.npmjs.org'
-        cache: ''
-    - run: npm config --global set spin false
-      if: '${{ matrix.node < 18 }}'
-    - run: yarn install --frozen-lockfile
-    - run: yarn run test
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          registry-url: 'https://registry.npmjs.org'
+          cache: ''
+      - run: npm config --global set spin false
+        if: '${{ matrix.node < 18 }}'
+      - run: npm ci
+      - run: npm test

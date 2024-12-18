@@ -15,8 +15,8 @@ jobs:
           node-version: 20
           registry-url: 'https://registry.npmjs.org'
           cache: ''
-      - run: yarn install --frozen-lockfile
-      - run: yarn run test
+      - run: npm ci
+      - run: npm test
       - run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
