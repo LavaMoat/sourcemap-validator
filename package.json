@@ -40,8 +40,7 @@
     "uglify-js": "^2.8.29"
   },
   "optionalDependencies": {},
-  "packageManager": "yarn@1.22.22",
   "engines": {
-    "node": "8.* || >= 10.*"
+    "node": "^16.0.0 || ^18.0.0 || ^20.0.0 || ^22.0.0"
   }
 }
