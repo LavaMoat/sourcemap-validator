@@ -1,0 +1,18 @@
+{
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  description: 'Renovate config for LavaMoat monorepo',
+  extends: [
+    'config:best-practices',
+    'replacements:all',
+    'config:js-app', // everything gets pinned except peer deps (plus a bunch of other reasonable defaults)
+    'group:definitelyTyped', // groups all `@types/*` packages together
+    'helpers:pinGitHubActionDigests', // pins SHAs of GitHub actions
+    ':enableVulnerabilityAlerts', // enables GitHub vulnerability alerts
+    ':semanticCommits', // use semantic commits
+    'group:linters', // group lint-related packages together
+    'workarounds:typesNodeVersioning', // tracks node versions from engines field in package.json for @types/node
+    'internalChecksFilter': 'strict', // strict internal checks
+    'labels': ['dependencies'], // add "dependencies" label to PRs
+    'minimumReleaseAge': '3 days', // wait 3 days before auto-merging
+  ],
+}
